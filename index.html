@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WiFi Gratis</title>
+    <title>Insidia</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -25,17 +25,21 @@
 <body>
     <div id="video-container">
         <video id="rickvideo" autoplay muted playsinline>
-            <source src="https://rickroll.it/rickroll.mp4" type="video/mp4">
+            <source src="https://tunombre.github.io/repo/rickroll.mp4" type="video/mp4">
             Tu navegador no soporta video HTML5.
         </video>
     </div>
 
+    <!-- Script de respaldo: si el video falla, redirige a rickroll.it -->
     <script>
-        // Forzar reproducción (aunque el navegador lo bloquee)
+        document.getElementById('rickvideo').addEventListener('error', function() {
+            window.location.href = "https://rickroll.it";
+        });
+
+        // Intentar forzar reproducción (opcional)
         document.addEventListener('DOMContentLoaded', function() {
             var video = document.getElementById('rickvideo');
             video.play().catch(e => {
-                // Si falla, redirigir a rickroll.it como plan B
                 window.location.href = "https://rickroll.it";
             });
         });
